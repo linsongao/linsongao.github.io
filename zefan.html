@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>小李老婆的择饭神器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+		body{
+			/* background: url(img/allOfUs.jpg); */
+			background-size:100%;
+			background-attachment: fixed;
+		}
+		h1{
+			font-size: 50px;
+			font-family: "courier new";
+			color: #EE9CA7;
+		}
+ 
+		.container{
+			width: 70%;
+			height: 450px;
+			border: 1px solid #ccc;
+			margin: 100px  auto;
+			padding: 5px;
+			align-items: center;
+			line-height: 50px;
+			text-align: center;
+			backdrop-filter: blur(10px);
+			
+		}
+		.show_name{
+			align-items: center;
+			border: #696969 2px solid;
+			width: 250px;
+			height: 120px;
+			line-height: 80px;
+			text-align: center;
+			margin: auto;
+		}
+		h2{
+			font-size: 30px;
+		}
+		.choose{
+			margin-top: 15px;
+		}
+		input{
+			width: 80px;
+			height: 40px;
+			margin: 10px;
+			border: aliceblue;
+			border-radius: 10px;
+			font-size: 17px;
+			color: brown;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container" >
+			<h1>此&nbsp; &nbsp;次&nbsp; &nbsp;选&nbsp; &nbsp;饭</h1>
+			<div  class="show_name">
+				<h2 id="title">饭&nbsp;饭</h2>
+			</div>
+			<div class="choose">
+				<input id="but" type="button"  value="开 始"/>
+				
+			</div>
+ 
+		</div>
+ 
+ 
+		<script>
+		    var flag=0;
+			var arr = [
+				'大盘鸡家的面', '馋嘴鱼','珍味居','鸭腿饭','麻辣香锅', '麻辣烫', '煎饼'
+				,'包子','荷叶饼','里脊饼','肉夹馍','饺子','鱼粉','馄饨'
+				,'主校水煮肉片','主校炸串','主校朝鲜面','咪小多','豆花饭','掉渣饼','找老公']
+			// 通过id拿到h2的标签
+			var title = document.getElementById('title')
+			var timer = null 
+			function start() {
+				timer = setInterval(function() {
+					var index = Math.floor(Math.random() * arr.length)
+					// 把index对应的数组的内容放到h2标签里面
+					title.innerHTML = arr[index]
+				}, 100)
+			}
+ 
+			function end() {
+				// 通过timer来控制开始按钮
+				clearInterval(timer)
+			}
+			but.onclick=function(){
+				if(flag==0){
+					flag++;
+					but.value='停止';
+					start();
+					
+					
+				}else{
+					flag--;
+					but.value='开始';
+					end();
+					
+				}
+			}
+		</script>
+	</body>
+</html>
